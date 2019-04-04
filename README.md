@@ -17,6 +17,8 @@ after 5 attempts each to catch a fish the game is over and whichever user cauggh
 
 realistic goals
 
+both players can cast their line and catch a fish each turn ending in a winner and loser based on the weight of their catch
+
 make it harder for the player who is winning to catch a big fish by speeding up the ball in the canvas section
 
 stretch goal
