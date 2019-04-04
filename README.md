@@ -1,31 +1,32 @@
 # Project-1
-Euchre
+Battling Dragons
+(based on a snake game idea)
 
-either user presses star game button and cards are dealt
+Player1 will enter their name in the correct box and selects a color to name their dragon
 
-user 1 is offered to order up the flip card to declare the trump suit and or "go alone"
+player 2 will enter their name in the correct box and selects a color to name their dragon
 
-if no then the computer is offered if not then user 2 is offered to order up the flip card to declare the trump suit and or "go alone" if not computer 2 is offered the same
+either user will preses the new game button
 
-if one of the users is the dealer for that round they will be prompted to "trash" a card to be replaced with the card that was ordered up
+users will use keys to determine direction dragon goes
 
-if no-one chooses the card the process repeats by offering each user and computer the option to call a trump suit as long as 
+when the round ends the user will press next round which will refresh the canvas to represent a new game
 
-it doesnt match the card they passed on originally
-
-once the trump suit has been decided player 1 will play their first card followed by the computer followed by player two 
-
-followed by comp 2
-
-the users and comps will repeat this until the round is over (all cards have been played)
-
-at which point the users will be made aware the round is over who won and how as well as see the points display change 
-
-a deal cards buttons will appear that the user will press to shuffle and redeal the cards for the next round
-
-when a team reaches 10 points the user will be alerted of who won and the final score of the game!
+first user to win 5 rounds wins the game
 
 
+realistic goal
+
+make the snakes move faster as the rounds go up (round 1 will be easy and if the game makes it to round 10 the players will barely be able to keep up)
+
+
+
+
+stretch goals
+make a breathe fire option on a button press to trigger a certain amount of area infront of the dragon to clear as a last ditch effort to stay alive
+
+include a golden dragon that moves on its own and can "slay" your dragon golden, dragon is immune to breathe fire option!
+golden dragon possibly spirals from center out
 
 
 
