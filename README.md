@@ -1,32 +1,27 @@
 # Project-1
-Battling Dragons
-(based on a snake game idea)
+Gone Fishin'
 
-Player1 will enter their name in the correct box and selects a color to name their dragon
+user 1 enters their name
 
-player 2 will enter their name in the correct box and selects a color to name their dragon
+user 2 enters their name
 
-either user will preses the new game button
+either player presses the begin game button to put fish in the pond
 
-users will use keys to determine direction dragon goes
+player 1 clicks their rod to cast a line and a fish is caught
 
-when the round ends the user will press next round which will refresh the canvas to represent a new game
+player 1 attemots to stop the ball as close to center as possible to get the biggest catch
 
-first user to win 5 rounds wins the game
+player 2 reapest the same process
 
+after 5 attempt each to catch a fish 
 
-realistic goal
+realistic goals
 
-make the snakes move faster as the rounds go up (round 1 will be easy and if the game makes it to round 10 the players will barely be able to keep up)
+make it harder for the player who is winning to catch a big fish by speeding up the ball in the canvas section
 
+stretch goal
 
-
-
-stretch goals
-make a breathe fire option on a button press to trigger a certain amount of area infront of the dragon to clear as a last ditch effort to stay alive
-
-include a golden dragon that moves on its own and can "slay" your dragon golden, dragon is immune to breathe fire option!
-golden dragon possibly spirals from center out
+if one player is winning by too much there is a chance their catch is stolen by an ocean predator
 
 
 
