@@ -11,9 +11,9 @@ player 1 clicks their rod to cast a line and a fish is caught
 
 player 1 attemots to stop the ball as close to center as possible to get the biggest catch
 
-player 2 reapest the same process
+player 2 repeats the same process
 
-after 5 attempt each to catch a fish 
+after 5 attempts each to catch a fish the game is over and whichever user caugght more weight in fish will be declared the winner the othere user will be declared the loser 
 
 realistic goals
 
