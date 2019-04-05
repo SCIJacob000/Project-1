@@ -8,11 +8,12 @@ class Player{
 
 	castRod(){
 		// makes rod shake as well as initiates the catchFish function  
+		//alerts the player they have a Fish On!
+		game.runSlider();
+		//if caught puts fish on display hook and adds weigght to total catch value! probably will break this up into a few functions 
 	};
 	catchFish(){
-		//alerts the player they have a Fish On!
-		//starts the meter to reel in the fish aka run the animation function for div id=block
-		//if caught puts fish on display hook and adds weigght to total catch value! 
+		
 	}	
 }
 
@@ -37,12 +38,20 @@ const game = {
 	},
 	fishOClock(){
 		this.timeInt = setInterval(() => {
-			console.log(this.time);
 			this.time += 1
 				
 		},2000)
+	},
+	runSlider(){
+		// if($('#block').css('marginLeft') <= 199){
+		const slider =setInterval(() =>{
+			$('#block').velocity({marginLeft: "200px"}, { duration: 500 }).velocity({marginLeft: "0px"}, { duration: 500 })
+			},1000)
 	}
 }
+
+const player1 = new Player();
+
 
 $('').on('click', () =>{
 
