@@ -20,39 +20,38 @@ class Player{
 		game.stopSlider();
 	};
 	smallInTheBox(){
-
-	}
+		
+	};
 	medInTheBox(){
 
-	}
+	};
 	bigInTheBox(){
 
-	}
+	};
 	trophyInTheBox(){
 		
-	}	
+	};	
 }
 
 class Fish {
-	constructor(size,weight){
-		this.size = size;
+	constructor(weight){
 		this.weight = weight;
 	};
 	breakTheLine(){
-		// if the player does really bad on the bar challenge then the fish will break the line and swim away!
+		//alert the player that the fish broke the line and got away
 	}
 }
-const smallFishy = new Fish(6,5)
-const mediumFishy = new Fish(12,10)
-const bigFishy = new Fish(18,15)
-const trophyFishy = new Fish(24,25)
+const smallFishy = new Fish(5)
+const mediumFishy = new Fish(10)
+const bigFishy = new Fish(15)
+const trophyFishy = new Fish(25)
 
 const game = {
 	time: 0,
 	timeInt: null,
 
 	payLake(){
-		//resets game to play again
+		//resets game to play again 
 	},
 	runGame(){
 		// runs all necesary functions/ jquery to make game work 
@@ -89,8 +88,43 @@ $('img').on('click', () =>{
 
 $('#bar').on('click', function(){
 	player1.catchFish();
-	//parseInt($('#block').css('marginLeft'))
-});
+// 	//parseInt($('#block').css('marginLeft');
+	if(parseInt($('#block').css('marginLeft')) > 135 && parseInt($('#block').css('marginLeft') < 165)){
+		if(){
+			player1.trophyInTheBox();
+		}
+		else{
+			player2.trophyInTheBox();
+		}
+	}
+	else if(parseInt($('#block').css('marginLeft')) > 105 && parseInt($('#block').css('marginLeft')) <= 135  || parseInt($('#block').css('marginLeft')) >= 165 && parseInt($('#block').css('marginLeft')) < 195){
+		if(){
+			player1.bigInTheBox();
+		}
+		else{
+			player2.bigInTheBox();
+		}
+	}
+	else if(parseInt($('#block').css('marginLeft')) > 75 && parseInt($('#block').css('marginLeft')) <= 105 || parseInt($('#block').css('marginLeft')) >= 195 && parseInt($('#block').css('marginLeft')) < 225){
+		if(){
+			player1.medInTheBox();
+		}
+		else{
+			player2.medInTheBox();
+		}
+	} 
+	else if(parseInt($('#block').css('marginLeft')) > 40 && parseInt($('#block').css('marginLeft')) <= 75 || parseInt($('#block').css('marginLeft')) >= 225 && parseInt($('#block').css('marginLeft')) < 255){
+		if(){
+			player1.smallInTheBox();
+		}
+		else{
+			player2.smallInTheBox();
+		}
+	}
+	else{
+		smallFishy.breakTheLine();
+	}
+ });
 
 
 
