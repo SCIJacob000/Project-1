@@ -1,4 +1,6 @@
 body{
+	display: flex;
+	flex-direction: row;
 	margin: 0 auto;
 }
 #bottom-half{
@@ -40,7 +42,9 @@ body{
 	border-radius: 5px;
 }
 h1{
-	height:50px;
+	text-align: center;
+	font-size: 50px;
+	height:70px;
 }
 #logo{
 	display:flex;
@@ -63,6 +67,12 @@ h3{
 	text-align: center;
 	height:150px;
 	width:300px;
-	font-size: 25px;
+	font-size: 30px;
+	overflow-wrap: break-word;
+}
+aside{
+	width:530px;
+	height:850px;
+	background-color: rgb(169,169,169);
 }
 

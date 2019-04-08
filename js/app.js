@@ -9,8 +9,15 @@ class Player{
 
 	castRod(){
 
-		$('#rod').velocity({rotateX: "90deg"}); // makes rod shake as well as initiates the catchFish function  
+
+		$('#pole').velocity({translateX: "40px", rotateY: "90deg"});
+		//$('#rod').velocity({translateX: "200px", rotateZ: "45deg"})
+		
+
 		//alerts the player they have a Fish On!
+		
+
+
 		game.runSlider();
 		//if caught puts fish on display hook and adds weigght to total catch value! probably will break this up into a few functions 
 	}
@@ -74,28 +81,39 @@ const game = {
 		$('#block').velocity("stop", true);
 	},
 	displayStatsP1(){
-		$('#p1').text(`Fishermans Name:${player2.name} Total Catch: ${player1.total} Fish Lost:${player1.numberOfLost}`)
+		$('#p1').text(`Fisherman:${player1.name} Total Catch: ${player1.total} Fish Lost:${player1.numberOfLost}`)
 
 	},
 	displayStatsP2(){
-		$('#p2').text(`Fishermans Name:${player2.name} Total Catch: ${player2.total} Fish Lost:${player2.numberOfLost}`)
+		$('#p2').text(`Fisherman:${player2.name} Total Catch: ${player2.total} Fish Lost:${player2.numberOfLost}`)
 
 	},
 }
 
-const player1 = new Player("");//input from box 
-const player2 = new Player("");//input fromt box
+const player1 = new Player("");
+const player2 = new Player("");
 
 $('button').on('click', function(){
+	player1.name = $('#name-box1').val()
+	$('#name-box1').hide();
+	player2.name = $('#name-box2').val()
+	$('#name-box2').hide();
 	game.displayStatsP1();
 	game.displayStatsP2();
 });
 
-$('img').on('click', () =>{
+$('img').on('click', function(){
 	player1.castRod();
 });
 
-$('#bar').on('click', function(){
+
+
+
+
+
+
+
+$(document).on('keydown', function(){
 	// if it's in the middle
 	if((parseInt($('#block').css('marginLeft')) > 135) && (parseInt($('#block').css('marginLeft')) < 165)){ 
 		//console.log("it's in the middle");
