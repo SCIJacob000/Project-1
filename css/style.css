@@ -31,6 +31,9 @@ body{
 	align-content: space-between;
 }
 #player1, #player2{
+	display:flex;
+	flex-direction: column;
+	justify-content: space-around;
 	height:225px;
 	width: 300px;
 	background-color:rgba(11,110,35,.8);
@@ -55,5 +58,11 @@ h1{
 	height:50px;
 	width:5px;
 	background-color: black;
+}
+h3{
+	text-align: center;
+	height:150px;
+	width:300px;
+	font-size: 25px;
 }
 

@@ -64,9 +64,6 @@ const game = {
 	payLake(){
 		//resets game to play again 
 	},
-	runGame(){
-		// runs all necesary functions/ jquery to make game work 
-	},
 	runSlider(){
 		this.slider = setInterval(() =>{
 			$('#block').velocity({marginLeft: "300px"}, { duration: 550 }).velocity({marginLeft: "0px"}, { duration: 550 })
@@ -77,16 +74,22 @@ const game = {
 		$('#block').velocity("stop", true);
 	},
 	displayStatsP1(){
+		$('#p1').text(`Fishermans Name:${player2.name} Total Catch: ${player1.total} Fish Lost:${player1.numberOfLost}`)
 
 	},
 	displayStatsP2(){
+		$('#p2').text(`Fishermans Name:${player2.name} Total Catch: ${player2.total} Fish Lost:${player2.numberOfLost}`)
 
 	},
 }
 
-const player1 = new Player("me");//input from box 
-const player2 = new Player("you");//input fromt box
+const player1 = new Player("");//input from box 
+const player2 = new Player("");//input fromt box
 
+$('button').on('click', function(){
+	game.displayStatsP1();
+	game.displayStatsP2();
+});
 
 $('img').on('click', () =>{
 	player1.castRod();
@@ -95,30 +98,33 @@ $('img').on('click', () =>{
 $('#bar').on('click', function(){
 	// if it's in the middle
 	if((parseInt($('#block').css('marginLeft')) > 135) && (parseInt($('#block').css('marginLeft')) < 165)){ 
-		console.log("it's in the middle");
+		//console.log("it's in the middle");
 
 		// compare number of turns taken -- if player 1 has gone more times
 		if(player1.numberOfFish + player1.numberOfLost == player2.numberOfFish + player2.numberOfLost) {
 			player1.catchFish();
 			player1.trophyInTheBox();
 			console.log(player1);
+			game.displayStatsP1();
 		}
 		else {
 			player2.catchFish();
 			player2.trophyInTheBox();
 			console.log(player2);
-
+			game.displayStatsP2();
 		}
 	}
 
 	// if it's a little off center
-	else if(parseInt($('#block').css('marginLeft')) > 105 && parseInt($('#block').css('marginLeft')) <= 135  || parseInt($('#block').css('marginLeft')) >= 165 && parseInt($('#block').css('marginLeft')) < 195){
+	else if((parseInt($('#block').css('marginLeft')) > 105) && (parseInt($('#block').css('marginLeft')) <= 135)  || (parseInt($('#block').css('marginLeft')) >= 165) && (parseInt($('#block').css('marginLeft')) < 195)){
 		
 		if(player1.numberOfFish + player1.numberOfLost <= player2.numberOfFish + player2.numberOfLost) {
 			
 			player1.catchFish();
 			player1.bigInTheBox();
 			console.log(player1);
+			game.displayStatsP1();
+
 
 		}
 
@@ -127,39 +133,43 @@ $('#bar').on('click', function(){
 			player2.catchFish();
 			player2.bigInTheBox();
 			console.log(player2);
+			game.displayStatsP2();
+
 
 		}
 	}
 	// if it's moderately off center
-	else if(parseInt($('#block').css('marginLeft')) > 75 && parseInt($('#block').css('marginLeft')) <= 105 || parseInt($('#block').css('marginLeft')) >= 195 && parseInt($('#block').css('marginLeft')) < 225){
+	else if((parseInt($('#block').css('marginLeft')) > 75) && (parseInt($('#block').css('marginLeft')) <= 105) || (parseInt($('#block').css('marginLeft')) >= 195) && (parseInt($('#block').css('marginLeft')) < 225)){
 		
 		if(player1.numberOfFish + player1.numberOfLost <= player2.numberOfFish + player2.numberOfLost){
 			
 			player1.catchFish();
 			player1.medInTheBox();
 			console.log(player1);
-
+			game.displayStatsP1();
 		}
 		else{
 			player2.catchFish();
 			player2.medInTheBox();
 			console.log(player2);
-
+			game.displayStatsP2();
 		}
 	} 
 	// if it's near the edge
-	else if(parseInt($('#block').css('marginLeft')) > 40 && parseInt($('#block').css('marginLeft')) <= 75 || parseInt($('#block').css('marginLeft')) >= 225 && parseInt($('#block').css('marginLeft')) < 255){
+	else if((parseInt($('#block').css('marginLeft')) > 40) && (parseInt($('#block').css('marginLeft')) <= 75) || (parseInt($('#block').css('marginLeft')) >= 225) && (parseInt($('#block').css('marginLeft')) < 255)){
 		if(player1.numberOfFish + player1.numberOfLost <= player2.numberOfFish + player2.numberOfLost){
 			player1.catchFish();
 			player1.smallInTheBox();
 			console.log(player1);
+			game.displayStatsP1();
+
 
 		}
 		else{
 			player2.catchFish();
 			player2.smallInTheBox();
 			console.log(player2);
-
+			game.displayStatsP2();
 		}
 	}
 	// if you blew it
@@ -168,11 +178,14 @@ $('#bar').on('click', function(){
 			player1.catchFish();
 			smallFishy.breakTheLine();
 			console.log(player1);
+			game.displayStatsP1();
+
 		}
 		else{
 			player2.catchFish();
 			smallFishy.breakTheLine();
 			console.log(player2);
+			game.displayStatsP2();
 		}
 	}
  });
