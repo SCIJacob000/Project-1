@@ -100,7 +100,8 @@ $('button').on('click', function(){
 	$('#name-box2').hide();
 	game.displayStatsP1();
 	game.displayStatsP2();
-	$('#msgbox').text(`Its ${player1.name}'s turn! Click the rod to cast off and get fishin!`)
+	$('#gameupdates').prepend(`<li>It's now ${player1.name}'s turn! Click the rod to cast off and get fishin!</li>`)
+	
 
 });
 
@@ -126,7 +127,8 @@ $('#bar').on('click', function(){
 			player1.trophyInTheBox();
 			console.log(player1);
 			game.displayStatsP1();
-			$('#msgbox').text(`Its now ${player2.name}'s turn! Click the rod to cast off and get fishin!`)
+			$('#gameupdates').prepend(`<li>It's now ${player2.name}'s turn! Click the rod to cast off and get fishin!</li>`)
+
 
 		}
 		else {
@@ -134,7 +136,7 @@ $('#bar').on('click', function(){
 			player2.trophyInTheBox();
 			console.log(player2);
 			game.displayStatsP2();
-			$('#msgbox').text(`Its now ${player1.name}'s turn! Click the rod to cast off and get fishin!`)
+			$('#gameupdates').prepend(`<li>It's now ${player1.name}'s turn! Click the rod to cast off and get fishin!</li>`)
 		}
 	}
 
@@ -147,7 +149,8 @@ $('#bar').on('click', function(){
 			player1.bigInTheBox();
 			console.log(player1);
 			game.displayStatsP1();
-			$('#msgbox').text(`Its ${player2.name}'s turn! Click the rod to cast off and get fishin!`)
+			$('#gameupdates').prepend(`<li>Its now ${player2.name}'s turn! Click the rod to cast off and get fishin!</li>`)
+			
 		}
 
 		else{
@@ -156,8 +159,7 @@ $('#bar').on('click', function(){
 			player2.bigInTheBox();
 			console.log(player2);
 			game.displayStatsP2();
-			$('#msgbox').text(`Its ${player1.name}'s turn! Click the rod to cast off and get fishin!`)
-
+			$('#gameupdates').prepend(`<li>Its now ${player1.name}'s turn! Click the rod to cast off and get fishin!</li>`)
 		}
 	}
 	// if it's moderately off center
@@ -169,12 +171,14 @@ $('#bar').on('click', function(){
 			player1.medInTheBox();
 			console.log(player1);
 			game.displayStatsP1();
+			$('#gameupdates').prepend(`<li>Its now ${player2.name}'s turn! Click the rod to cast off and get fishin!</li>`)
 		}
 		else{
 			player2.catchFish();
 			player2.medInTheBox();
 			console.log(player2);
 			game.displayStatsP2();
+			$('#gameupdates').prepend(`<li>Its now ${player1.name}'s turn! Click the rod to cast off and get fishin!</li>`)
 		}
 	} 
 	// if it's near the edge
@@ -184,6 +188,8 @@ $('#bar').on('click', function(){
 			player1.smallInTheBox();
 			console.log(player1);
 			game.displayStatsP1();
+			$('#gameupdates').prepend(`<li>Its now ${player2.name}'s turn! Click the rod to cast off and get fishin!</li>`)
+
 
 
 		}
@@ -192,6 +198,8 @@ $('#bar').on('click', function(){
 			player2.smallInTheBox();
 			console.log(player2);
 			game.displayStatsP2();
+			$('#gameupdates').prepend(`<li>Its now ${player1.name}'s turn! Click the rod to cast off and get fishin!</li>`)
+
 		}
 	}
 	// if you blew it
@@ -201,6 +209,8 @@ $('#bar').on('click', function(){
 			smallFishy.breakTheLine();
 			console.log(player1);
 			game.displayStatsP1();
+			$('#gameupdates').prepend(`<li>Its now ${player2.name}'s turn! Click the rod to cast off and get fishin!</li>`)
+
 
 		}
 		else{
@@ -208,6 +218,8 @@ $('#bar').on('click', function(){
 			smallFishy.breakTheLine();
 			console.log(player2);
 			game.displayStatsP2();
+			$('#gameupdates').prepend(`<li>Its now ${player1.name}'s turn! Click the rod to cast off and get fishin!</li>`)
+
 		}
 	}
  });
