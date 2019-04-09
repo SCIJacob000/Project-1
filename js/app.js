@@ -10,7 +10,7 @@ class Player{
 	castRod(){
 
 
-		$('#pole').velocity({translateX: "40px", rotateY: "90deg"});
+		//$('#pole').velocity({translateX: "40px", rotateY: "90deg"});
 		//$('#rod').velocity({translateX: "200px", rotateZ: "45deg"})
 		
 
@@ -100,6 +100,8 @@ $('button').on('click', function(){
 	$('#name-box2').hide();
 	game.displayStatsP1();
 	game.displayStatsP2();
+	$('#msgbox').text(`Its ${player1.name}'s turn! Click the rod to cast off and get fishin!`)
+
 });
 
 $('img').on('click', function(){
@@ -113,7 +115,7 @@ $('img').on('click', function(){
 
 
 
-$(document).on('keydown', function(){
+$('#bar').on('click', function(){
 	// if it's in the middle
 	if((parseInt($('#block').css('marginLeft')) > 135) && (parseInt($('#block').css('marginLeft')) < 165)){ 
 		//console.log("it's in the middle");
@@ -124,12 +126,15 @@ $(document).on('keydown', function(){
 			player1.trophyInTheBox();
 			console.log(player1);
 			game.displayStatsP1();
+			$('#msgbox').text(`Its now ${player2.name}'s turn! Click the rod to cast off and get fishin!`)
+
 		}
 		else {
 			player2.catchFish();
 			player2.trophyInTheBox();
 			console.log(player2);
 			game.displayStatsP2();
+			$('#msgbox').text(`Its now ${player1.name}'s turn! Click the rod to cast off and get fishin!`)
 		}
 	}
 
@@ -142,8 +147,7 @@ $(document).on('keydown', function(){
 			player1.bigInTheBox();
 			console.log(player1);
 			game.displayStatsP1();
-
-
+			$('#msgbox').text(`Its ${player2.name}'s turn! Click the rod to cast off and get fishin!`)
 		}
 
 		else{
@@ -152,7 +156,7 @@ $(document).on('keydown', function(){
 			player2.bigInTheBox();
 			console.log(player2);
 			game.displayStatsP2();
-
+			$('#msgbox').text(`Its ${player1.name}'s turn! Click the rod to cast off and get fishin!`)
 
 		}
 	}
