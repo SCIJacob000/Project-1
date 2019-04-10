@@ -124,6 +124,7 @@ $('button').on('click', function(){
 //upon clicking the rod the bar starts moving 
 $('img').on('click', function(){
 	$('img').hide();
+	game.runSlider();
 	//$('#guide').append('<img id="bobber" src="https://www.trendyornaments.com/images/44115-2-.png"')
 
 });
