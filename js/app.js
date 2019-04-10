@@ -66,7 +66,22 @@ const game = {
 	time: 0,
 	slider: null,
 	payLake(){
-		//resets game to play again 
+		if((player1.numberOfFish + player1.numberOfLost === 5) && (player2.numberOfFish + player2.numberOfLost === 5)){
+			const player1 = new Player("");
+			const player2 = new Player("");
+			const smallFishy = new Fish(5)
+			const mediumFishy = new Fish(10)
+			const bigFishy = new Fish(15)
+			const trophyFishy = new Fish(25)
+			player1.name = $('#name-box1').show()
+			player2.name = $('#name-box2').show()
+			if(player1.total > player2.total){
+			$('#gameupdates').text(`${player1.name} wins! Please Enter new names in the boxes and press the Lets Go Fishin button to play again!`)
+			}
+			else{
+			$('#gameupdates').text(`${player2.name} wins! Please Enter new names in the boxes and press the Lets Go Fishin button to play again!`)	
+			}		
+		}
 	},
 
 	runSlider(){
@@ -102,6 +117,7 @@ $('button').on('click', function(){
 	game.displayStatsP1();
 	game.displayStatsP2();
 	$('#gameupdates').prepend(`<li>It's now ${player1.name}'s turn! Click the rod to cast off and get fishin!</li>`)
+	game.payLake();
 });
 
 
@@ -110,7 +126,7 @@ $('button').on('click', function(){
 $('img').on('click', function(){
 	player1.castRod();
 	$('img').hide();
-	$('#guide').append('<img id="bobber" src="https://www.trendyornaments.com/images/44115-2-.png"')
+	//$('#guide').append('<img id="bobber" src="https://www.trendyornaments.com/images/44115-2-.png"')
 
 });
 
