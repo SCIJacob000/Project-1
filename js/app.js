@@ -250,7 +250,7 @@ $('img').on('click', function(){
 $('#bar').on('click', function(){
 	if(player1.numberOfFish + player1.numberOfLost == player2.numberOfFish + player2.numberOfLost) {
 		player1.catchFish();
-		game.payLake();
+		//game.payLake(); // this is calling the nonfunctional function thaty wins/ends/resets the game!!!!
 
 		if((parseInt($('#block').css('marginLeft')) > 135) && (parseInt($('#block').css('marginLeft')) < 165)){ 
 			player1.trophyInTheBox();
