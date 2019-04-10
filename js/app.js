@@ -7,18 +7,15 @@ class Player{
 		this.name = name;
 	}
 	castRod(){
-
-
-		$('#pole').velocity({translateX: 40, rotateY: 90})
-		$('#rod').velocity({translateX: "200px", rotateZ: "45deg"})
-		
-
-		//alerts the player they have a Fish On!
+		//$('#pole').velocity({translateX: 40, rotateY: 90})
+		//$('#rod').velocity({translateX: "200px", rotateZ: "45deg"})
 		game.runSlider();
 	}
 
 	catchFish(){
 		game.stopSlider();
+		$('#gameupdates').prepend(`<li>FISH ON !!! </li>`)
+		$('img').show();
 	}
 
 	smallInTheBox(){
@@ -112,6 +109,9 @@ $('button').on('click', function(){
 //upon clicking the rod the bar starts moving 
 $('img').on('click', function(){
 	player1.castRod();
+	$('img').hide();
+	$('#guide').append('<img id="bobber" src="https://www.trendyornaments.com/images/44115-2-.png"')
+
 });
 
 
@@ -121,128 +121,179 @@ $('img').on('click', function(){
 
 
 //clicking the bar to stop the meter at different places will effect what size fish you catch
-$('#bar').on('click', function(){
-	// if it's in the middle
-	if((parseInt($('#block').css('marginLeft')) > 135) && (parseInt($('#block').css('marginLeft')) < 165)){ 
-		//console.log("it's in the middle");
+	// // if it's in the middle
+	// if((parseInt($('#block').css('marginLeft')) > 135) && (parseInt($('#block').css('marginLeft')) < 165)){ 
+	// 	//console.log("it's in the middle");
 
-		// compare number of turns taken -- if player 1 has gone more times
-		if(player1.numberOfFish + player1.numberOfLost == player2.numberOfFish + player2.numberOfLost) {
-			player1.catchFish();
+	// 	// compare number of turns taken -- if player 1 has gone more times
+	// 	if(player1.numberOfFish + player1.numberOfLost == player2.numberOfFish + player2.numberOfLost) {
+	// 		player1.catchFish();
+	// 		player1.trophyInTheBox();
+	// 		console.log(player1);
+	// 		game.displayStatsP1();
+	// 		$('#gameupdates').prepend(`<li>It's now ${player2.name}'s turn! Click the rod to cast off and get fishin!</li>`)
+
+
+	// 	}
+	// 	else {
+	// 		player2.catchFish();
+	// 		player2.trophyInTheBox();
+	// 		console.log(player2);
+	// 		game.displayStatsP2();
+	// 		$('#gameupdates').prepend(`<li>It's now ${player1.name}'s turn! Click the rod to cast off and get fishin!</li>`)
+	// 	}
+	// }
+
+	// // if it's a little off center
+	// else if((parseInt($('#block').css('marginLeft')) > 105) && (parseInt($('#block').css('marginLeft')) <= 135)  || (parseInt($('#block').css('marginLeft')) >= 165) && (parseInt($('#block').css('marginLeft')) < 195)){
+		
+	// 	if(player1.numberOfFish + player1.numberOfLost <= player2.numberOfFish + player2.numberOfLost) {
+			
+	// 		player1.catchFish();
+	// 		player1.bigInTheBox();
+	// 		console.log(player1);
+	// 		game.displayStatsP1();
+	// 		$('#gameupdates').prepend(`<li>Its now ${player2.name}'s turn! Click the rod to cast off and get fishin!</li>`)
+			
+	// 	}
+
+	// 	else{
+			
+	// 		player2.catchFish();
+	// 		player2.bigInTheBox();
+	// 		console.log(player2);
+	// 		game.displayStatsP2();
+	// 		$('#gameupdates').prepend(`<li>Its now ${player1.name}'s turn! Click the rod to cast off and get fishin!</li>`)
+	// 	}
+	// }
+	// // if it's moderately off center
+	// else if((parseInt($('#block').css('marginLeft')) > 75) && (parseInt($('#block').css('marginLeft')) <= 105) || (parseInt($('#block').css('marginLeft')) >= 195) && (parseInt($('#block').css('marginLeft')) < 225)){
+		
+	// 	if(player1.numberOfFish + player1.numberOfLost <= player2.numberOfFish + player2.numberOfLost){
+			
+	// 		player1.catchFish();
+	// 		player1.medInTheBox();
+	// 		console.log(player1);
+	// 		game.displayStatsP1();
+	// 		$('#gameupdates').prepend(`<li>Its now ${player2.name}'s turn! Click the rod to cast off and get fishin!</li>`)
+	// 	}
+	// 	else{
+	// 		player2.catchFish();
+	// 		player2.medInTheBox();
+	// 		console.log(player2);
+	// 		game.displayStatsP2();
+	// 		$('#gameupdates').prepend(`<li>Its now ${player1.name}'s turn! Click the rod to cast off and get fishin!</li>`)
+	// 	}
+	// } 
+	// // if it's near the edge
+	// else if((parseInt($('#block').css('marginLeft')) > 40) && (parseInt($('#block').css('marginLeft')) <= 75) || (parseInt($('#block').css('marginLeft')) >= 225) && (parseInt($('#block').css('marginLeft')) < 255)){
+	// 	if(player1.numberOfFish + player1.numberOfLost <= player2.numberOfFish + player2.numberOfLost){
+	// 		player1.catchFish();
+	// 		player1.smallInTheBox();
+	// 		console.log(player1);
+	// 		game.displayStatsP1();
+	// 		$('#gameupdates').prepend(`<li>Its now ${player2.name}'s turn! Click the rod to cast off and get fishin!</li>`)
+
+
+
+	// 	}
+	// 	else{
+	// 		player2.catchFish();
+	// 		player2.smallInTheBox();
+	// 		console.log(player2);
+	// 		game.displayStatsP2();
+	// 		$('#gameupdates').prepend(`<li>Its now ${player1.name}'s turn! Click the rod to cast off and get fishin!</li>`)
+
+	// 	}
+	
+	// if you blew it
+	
+	// 	if(player1.numberOfFish + player1.numberOfLost <= player2.numberOfFish + player2.numberOfLost){
+	// 		player1.catchFish();
+	// 		smallFishy.breakTheLine();
+	// 		console.log(player1);
+	// 		game.displayStatsP1();
+	// 		$('#gameupdates').prepend(`<li>Its now ${player2.name}'s turn! Click the rod to cast off and get fishin!</li>`)
+
+
+	// 	}
+	// 	else{
+	// 		player2.catchFish();
+	// 		smallFishy.breakTheLine();
+	// 		console.log(player2);
+	// 		game.displayStatsP2();
+	// 		$('#gameupdates').prepend(`<li>Its now ${player1.name}'s turn! Click the rod to cast off and get fishin!</li>`)
+
+	// 	}
+	// }
+ // });
+
+
+//my old code lies above in the darkness!
+
+
+$('#bar').on('click', function(){
+	if(player1.numberOfFish + player1.numberOfLost == player2.numberOfFish + player2.numberOfLost) {
+		player1.catchFish();
+		if((parseInt($('#block').css('marginLeft')) > 135) && (parseInt($('#block').css('marginLeft')) < 165)){ 
 			player1.trophyInTheBox();
-			console.log(player1);
 			game.displayStatsP1();
 			$('#gameupdates').prepend(`<li>It's now ${player2.name}'s turn! Click the rod to cast off and get fishin!</li>`)
-
-
 		}
-		else {
-			player2.catchFish();
+		else if((parseInt($('#block').css('marginLeft')) > 105) && (parseInt($('#block').css('marginLeft')) <= 135)  || (parseInt($('#block').css('marginLeft')) >= 165) && (parseInt($('#block').css('marginLeft')) < 195)){
+			player1.bigInTheBox();
+			game.displayStatsP1();
+			$('#gameupdates').prepend(`<li>Its now ${player2.name}'s turn! Click the rod to cast off and get fishin!</li>`)
+			}
+		else if((parseInt($('#block').css('marginLeft')) > 75) && (parseInt($('#block').css('marginLeft')) <= 105) || (parseInt($('#block').css('marginLeft')) >= 195) && (parseInt($('#block').css('marginLeft')) < 225)){
+			player1.medInTheBox();
+			game.displayStatsP1();
+			$('#gameupdates').prepend(`<li>Its now ${player2.name}'s turn! Click the rod to cast off and get fishin!</li>`)
+		}
+		else if((parseInt($('#block').css('marginLeft')) > 40) && (parseInt($('#block').css('marginLeft')) <= 75) || (parseInt($('#block').css('marginLeft')) >= 225) && (parseInt($('#block').css('marginLeft')) < 255)){
+			player1.smallInTheBox();
+			game.displayStatsP1();
+			$('#gameupdates').prepend(`<li>Its now ${player2.name}'s turn! Click the rod to cast off and get fishin!</li>`)
+		}
+		else{
+			smallFishy.breakTheLine();
+			$('#gameupdates').prepend(`<li>Its now ${player2.name}'s turn! Click the rod to cast off and get fishin!</li>`)
+			game.displayStatsP1();
+		}
+	}
+	else{
+		player2.catchFish();
+		if((parseInt($('#block').css('marginLeft')) > 135) && (parseInt($('#block').css('marginLeft')) < 165)){ 
 			player2.trophyInTheBox();
-			console.log(player2);
 			game.displayStatsP2();
 			$('#gameupdates').prepend(`<li>It's now ${player1.name}'s turn! Click the rod to cast off and get fishin!</li>`)
 		}
-	}
-
-	// if it's a little off center
-	else if((parseInt($('#block').css('marginLeft')) > 105) && (parseInt($('#block').css('marginLeft')) <= 135)  || (parseInt($('#block').css('marginLeft')) >= 165) && (parseInt($('#block').css('marginLeft')) < 195)){
-		
-		if(player1.numberOfFish + player1.numberOfLost <= player2.numberOfFish + player2.numberOfLost) {
-			
-			player1.catchFish();
-			player1.bigInTheBox();
-			console.log(player1);
-			game.displayStatsP1();
-			$('#gameupdates').prepend(`<li>Its now ${player2.name}'s turn! Click the rod to cast off and get fishin!</li>`)
-			
-		}
-
-		else{
-			
-			player2.catchFish();
+		else if((
+			parseInt($('#block').css('marginLeft')) > 105) && (parseInt($('#block').css('marginLeft')) <= 135)  || (parseInt($('#block').css('marginLeft')) >= 165) && (parseInt($('#block').css('marginLeft')) < 195)){
 			player2.bigInTheBox();
-			console.log(player2);
 			game.displayStatsP2();
 			$('#gameupdates').prepend(`<li>Its now ${player1.name}'s turn! Click the rod to cast off and get fishin!</li>`)
 		}
-	}
-	// if it's moderately off center
-	else if((parseInt($('#block').css('marginLeft')) > 75) && (parseInt($('#block').css('marginLeft')) <= 105) || (parseInt($('#block').css('marginLeft')) >= 195) && (parseInt($('#block').css('marginLeft')) < 225)){
-		
-		if(player1.numberOfFish + player1.numberOfLost <= player2.numberOfFish + player2.numberOfLost){
-			
-			player1.catchFish();
-			player1.medInTheBox();
-			console.log(player1);
-			game.displayStatsP1();
-			$('#gameupdates').prepend(`<li>Its now ${player2.name}'s turn! Click the rod to cast off and get fishin!</li>`)
-		}
-		else{
-			player2.catchFish();
+		else if((parseInt($('#block').css('marginLeft')) > 75) && (parseInt($('#block').css('marginLeft')) <= 105) || (parseInt($('#block').css('marginLeft')) >= 195) && (parseInt($('#block').css('marginLeft')) < 225)){
 			player2.medInTheBox();
-			console.log(player2);
 			game.displayStatsP2();
 			$('#gameupdates').prepend(`<li>Its now ${player1.name}'s turn! Click the rod to cast off and get fishin!</li>`)
 		}
-	} 
-	// if it's near the edge
-	else if((parseInt($('#block').css('marginLeft')) > 40) && (parseInt($('#block').css('marginLeft')) <= 75) || (parseInt($('#block').css('marginLeft')) >= 225) && (parseInt($('#block').css('marginLeft')) < 255)){
-		if(player1.numberOfFish + player1.numberOfLost <= player2.numberOfFish + player2.numberOfLost){
-			player1.catchFish();
-			player1.smallInTheBox();
-			console.log(player1);
-			game.displayStatsP1();
-			$('#gameupdates').prepend(`<li>Its now ${player2.name}'s turn! Click the rod to cast off and get fishin!</li>`)
-
-
-
-		}
-		else{
-			player2.catchFish();
+		else if((parseInt($('#block').css('marginLeft')) > 40) && (parseInt($('#block').css('marginLeft')) <= 75) || (parseInt($('#block').css('marginLeft')) >= 225) && (parseInt($('#block').css('marginLeft')) < 255)){
 			player2.smallInTheBox();
-			console.log(player2);
 			game.displayStatsP2();
 			$('#gameupdates').prepend(`<li>Its now ${player1.name}'s turn! Click the rod to cast off and get fishin!</li>`)
+		}
+		else{	
+			smallFishy.breakTheLine();
+			$('#gameupdates').prepend(`<li>Its now ${player1.name}'s turn! Click the rod to cast off and get fishin!</li>`)
+			game.displayStatsP2();
 
 		}
 	}
-	// if you blew it
-	
-		if(player1.numberOfFish + player1.numberOfLost <= player2.numberOfFish + player2.numberOfLost){
-			player1.catchFish();
-			smallFishy.breakTheLine();
-			console.log(player1);
-			game.displayStatsP1();
-			$('#gameupdates').prepend(`<li>Its now ${player2.name}'s turn! Click the rod to cast off and get fishin!</li>`)
+}
+);
 
-
-		}
-		else{
-			player2.catchFish();
-			smallFishy.breakTheLine();
-			console.log(player2);
-			game.displayStatsP2();
-			$('#gameupdates').prepend(`<li>Its now ${player1.name}'s turn! Click the rod to cast off and get fishin!</li>`)
-
-		}
-	}
- });
-
-
-
-
-
-
-if(player1.numberOfFish + player1.numberOfLost == player2.numberOfFish + player2.numberOfLost) {
-
-
-};
-else{
-
-
-
-};
 
 
 
