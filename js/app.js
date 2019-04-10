@@ -66,7 +66,7 @@ const game = {
 	time: 0,
 	slider: null,
 	payLake(){
-		if((player1.numberOfFish + player1.numberOfLost === 5) && (player2.numberOfFish + player2.numberOfLost === 5)){
+		if(((player1.numberOfFish + player1.numberOfLost) === 5) && ((player2.numberOfFish + player2.numberOfLost) === 5)){
 			const player1 = new Player("");
 			const player2 = new Player("");
 			const smallFishy = new Fish(5)
@@ -76,10 +76,10 @@ const game = {
 			player1.name = $('#name-box1').show()
 			player2.name = $('#name-box2').show()
 			if(player1.total > player2.total){
-			$('#gameupdates').text(`${player1.name} wins! Please Enter new names in the boxes and press the Lets Go Fishin button to play again!`)
+			$('#gameupdates').prepend(`<li>${player1.name} wins! Please Enter new names in the boxes and press the Lets Go Fishin button to play again!</li>`)
 			}
 			else{
-			$('#gameupdates').text(`${player2.name} wins! Please Enter new names in the boxes and press the Lets Go Fishin button to play again!`)	
+			$('#gameupdates').prepend(`<li>${player2.name} wins! Please Enter new names in the boxes and press the Lets Go Fishin button to play again!</li>`)	
 			}		
 		}
 	},
@@ -117,14 +117,12 @@ $('button').on('click', function(){
 	game.displayStatsP1();
 	game.displayStatsP2();
 	$('#gameupdates').prepend(`<li>It's now ${player1.name}'s turn! Click the rod to cast off and get fishin!</li>`)
-	game.payLake();
 });
 
 
 
 //upon clicking the rod the bar starts moving 
 $('img').on('click', function(){
-	player1.castRod();
 	$('img').hide();
 	//$('#guide').append('<img id="bobber" src="https://www.trendyornaments.com/images/44115-2-.png"')
 
@@ -251,6 +249,8 @@ $('img').on('click', function(){
 $('#bar').on('click', function(){
 	if(player1.numberOfFish + player1.numberOfLost == player2.numberOfFish + player2.numberOfLost) {
 		player1.catchFish();
+		game.payLake();
+
 		if((parseInt($('#block').css('marginLeft')) > 135) && (parseInt($('#block').css('marginLeft')) < 165)){ 
 			player1.trophyInTheBox();
 			game.displayStatsP1();
@@ -279,6 +279,7 @@ $('#bar').on('click', function(){
 	}
 	else{
 		player2.catchFish();
+		game.payLake();
 		if((parseInt($('#block').css('marginLeft')) > 135) && (parseInt($('#block').css('marginLeft')) < 165)){ 
 			player2.trophyInTheBox();
 			game.displayStatsP2();
