@@ -65,24 +65,24 @@ const trophyFishy = new Fish(25)
 const game = {
 	time: 0,
 	slider: null,
-	payLake(){
-		if(((player1.numberOfFish + player1.numberOfLost) === 5) && ((player2.numberOfFish + player2.numberOfLost) === 5)){
-			const player1 = new Player("");
-			const player2 = new Player("");
-			const smallFishy = new Fish(5)
-			const mediumFishy = new Fish(10)
-			const bigFishy = new Fish(15)
-			const trophyFishy = new Fish(25)
-			player1.name = $('#name-box1').show()
-			player2.name = $('#name-box2').show()
-			if(player1.total > player2.total){
-			$('#gameupdates').prepend(`<li>${player1.name} wins! Please Enter new names in the boxes and press the Lets Go Fishin button to play again!</li>`)
-			}
-			else{
-			$('#gameupdates').prepend(`<li>${player2.name} wins! Please Enter new names in the boxes and press the Lets Go Fishin button to play again!</li>`)	
-			}		
-		}
-	},
+	// payLake(){
+	// 	if(((player1.numberOfFish + player1.numberOfLost) === 5) && ((player2.numberOfFish + player2.numberOfLost) === 5)){
+	// 		const player1 = new Player("");
+	// 		const player2 = new Player("");
+	// 		const smallFishy = new Fish(5)
+	// 		const mediumFishy = new Fish(10)
+	// 		const bigFishy = new Fish(15)
+	// 		const trophyFishy = new Fish(25)
+	// 		player1.name = $('#name-box1').show()
+	// 		player2.name = $('#name-box2').show()
+	// 		if(player1.total > player2.total){
+	// 		$('#gameupdates').prepend(`<li>${player1.name} wins! Please Enter new names in the boxes and press the Lets Go Fishin button to play again!</li>`)
+	// 		}
+	// 		else{
+	// 		$('#gameupdates').prepend(`<li>${player2.name} wins! Please Enter new names in the boxes and press the Lets Go Fishin button to play again!</li>`)	
+	// 		}		
+	// 	}
+	//},
 
 	runSlider(){
 		this.slider = setInterval(() =>{
