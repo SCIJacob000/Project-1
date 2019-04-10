@@ -6,38 +6,37 @@ class Player{
 		this.total = 0;
 		this.name = name;
 	}
-
 	castRod(){
 
 
-		//$('#pole').velocity({translateX: "40px", rotateY: "90deg"});
-		//$('#rod').velocity({translateX: "200px", rotateZ: "45deg"})
+		$('#pole').velocity({translateX: 40, rotateY: 90})
+		$('#rod').velocity({translateX: "200px", rotateZ: "45deg"})
 		
 
 		//alerts the player they have a Fish On!
-		
-
-
 		game.runSlider();
-		//if caught puts fish on display hook and adds weigght to total catch value! probably will break this up into a few functions 
 	}
 
 	catchFish(){
 		game.stopSlider();
 	}
+
 	smallInTheBox(){
 		this.numberOfFish = this.numberOfFish + 1
 		this.total = this.total + smallFishy.weight
 	}
+
 	medInTheBox(){
 		this.numberOfFish = this.numberOfFish + 1
 		this.total = this.total + mediumFishy.weight
 	}
+
 	bigInTheBox(){
 		this.numberOfFish = this.numberOfFish + 1
 		this.total = this.total + bigFishy.weight
 
 	}
+
 	trophyInTheBox(){
 		this.numberOfFish = this.numberOfFish + 1
 		this.total = this.total + trophyFishy.weight
@@ -46,9 +45,11 @@ class Player{
 }
 
 class Fish {
-	constructor(weight){
+	constructor(weight, name){
 		this.weight = weight;
+		this.name = name;
 	};
+
 	breakTheLine(){
 		if(player1.numberOfFish + player1.numberOfLost <= player2.numberOfFish + player2.numberOfLost){
 			player1.numberOfLost = player1.numberOfLost + 1
@@ -66,24 +67,27 @@ const trophyFishy = new Fish(25)
 
 const game = {
 	time: 0,
-	timeInt: null,
 	slider: null,
 	payLake(){
 		//resets game to play again 
 	},
+
 	runSlider(){
 		this.slider = setInterval(() =>{
 			$('#block').velocity({marginLeft: "300px"}, { duration: 550 }).velocity({marginLeft: "0px"}, { duration: 550 })
-			},1100)
+		},1100)
 	},
+
 	stopSlider(){ console.log("stop");
 		clearInterval(this.slider);
 		$('#block').velocity("stop", true);
 	},
+
 	displayStatsP1(){
 		$('#p1').text(`Fisherman:${player1.name} Total Catch: ${player1.total} Fish Lost:${player1.numberOfLost}`)
 
 	},
+
 	displayStatsP2(){
 		$('#p2').text(`Fisherman:${player2.name} Total Catch: ${player2.total} Fish Lost:${player2.numberOfLost}`)
 
@@ -92,7 +96,7 @@ const game = {
 
 const player1 = new Player("");
 const player2 = new Player("");
-
+// begins the game applys names given to players accdordingly and displays their scores/stats
 $('button').on('click', function(){
 	player1.name = $('#name-box1').val()
 	$('#name-box1').hide();
@@ -101,10 +105,11 @@ $('button').on('click', function(){
 	game.displayStatsP1();
 	game.displayStatsP2();
 	$('#gameupdates').prepend(`<li>It's now ${player1.name}'s turn! Click the rod to cast off and get fishin!</li>`)
-	
-
 });
 
+
+
+//upon clicking the rod the bar starts moving 
 $('img').on('click', function(){
 	player1.castRod();
 });
@@ -115,7 +120,7 @@ $('img').on('click', function(){
 
 
 
-
+//clicking the bar to stop the meter at different places will effect what size fish you catch
 $('#bar').on('click', function(){
 	// if it's in the middle
 	if((parseInt($('#block').css('marginLeft')) > 135) && (parseInt($('#block').css('marginLeft')) < 165)){ 
@@ -203,7 +208,7 @@ $('#bar').on('click', function(){
 		}
 	}
 	// if you blew it
-	else{
+	
 		if(player1.numberOfFish + player1.numberOfLost <= player2.numberOfFish + player2.numberOfLost){
 			player1.catchFish();
 			smallFishy.breakTheLine();
@@ -229,7 +234,15 @@ $('#bar').on('click', function(){
 
 
 
+if(player1.numberOfFish + player1.numberOfLost == player2.numberOfFish + player2.numberOfLost) {
 
+
+};
+else{
+
+
+
+};
 
 
 

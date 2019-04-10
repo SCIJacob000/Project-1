@@ -15,13 +15,14 @@ body{
 	height: 250px;
 	margin-bottom: 25px;
 	margin-right: 15px;
+	transform: rotateX(70deg);
 }
 #game-stats{
 	height:225px;
 	width:900px;
 	display:flex;
 	flex-direction: row;
-	justify-content: space-between;
+	justify-content: space-around;
 }
 #fishing-spot{
 	background-image: url("https://7731c8515a5f2cbe9f51-77b0c0fa67b158fa53583bc3587fa989.ssl.cf5.rackcdn.com/190003507-vacant-land-1n5g35d-o.jpg");
@@ -35,10 +36,11 @@ body{
 	display:flex;
 	flex-direction: column;
 	justify-content: space-around;
-	height:225px;
-	width: 300px;
+	height:220px;
+	width: 295px;
 	background-color:rgba(11,110,35,.8);
 	border-radius: 5px;
+	border: 5px solid black;
 }
 h1{
 	text-align: center;
@@ -48,6 +50,7 @@ h1{
 #logo{
 	display:flex;
 	flex-direction: column;
+	align-items: center;
 	justify-content: space-between;
 	height:225px;
 
@@ -57,6 +60,8 @@ h1{
 	height:50px;
 	width:300px;
 	margin-top: 25px;
+	background-image: radial-gradient(green,yellow,red)
+	/*background-image: url("https://static.vecteezy.com/system/resources/previews/000/093/840/non_2x/vector-fish-background.jpg");*/
 }
 #block{
 	height:50px;
@@ -67,10 +72,14 @@ h3{
 	text-align: center;
 	height:150px;
 	width:300px;
-	font-size: 30px;
+	font-size: 32px;
 	overflow-wrap: break-word;
+	font-family: 'Open Sans', sans-serif;
 }
 aside{
+	display:flex;
+	justify-content: center;
+	align-items: center;
 	width:530px;
 	height:850px;
 	background-color: rgb(169,169,169);
@@ -84,11 +93,39 @@ aside{
 #msgbox{
 	background-color:rgba(169,169,169,.6); 
 	width:300px;
-	height:105px;
+	height:100px;
 	overflow: hidden;
+	border: 5px solid black;
 }
 li{
-	font-size: 25px;
+	font-size: 20px;
 	list-style: none;
+	font-family: 'Open Sans', sans-serif;
+}
+button{
+	width: 150px;
+	height:100px;
+}
+#instructions{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height:450px;
+	width: 450px;
+	background-color:black;
+}
+#instruction-label{
+	margin: 20px 0px;
+	color: red;
+	font-size: 50px;
+	width:400px;
+	font-family: 'Open Sans', sans-serif;
+}
+#instructions-text{
+	color: white;
+	font-size: 30px;
+	font-family: 'Open Sans', sans-serif;
+	text-align: center;
 }
 
